@@ -70,14 +70,16 @@ void setup() {
   for (int i = 0; i<6; i++){ //initialize servos
     servos[i].attach(pins[i]);
   }
-//  setAngleAll(0);
-  setFrontLegs(70);
-  bend();
+  setAngleAll(0);
   delay(1000);
+//  setFrontLegs(70);
+//  bend();
+//  delay(1000);
   //@TODO: initialize sensor
 }
 
 void loop() {
+//  bend();
   setFrontLegs(120);
   delay(0);
   setHindLegs(0,90);
