@@ -12,9 +12,8 @@ int ht = 100;
 void setup() {
   lbu.attach(9);  // attaches the servo on pin 9 to the servo object
   lbl.attach(10);
-//  lbu.write(90+angle_offset);
-//  lbl.write(angle_offset);  
-  lbu.write(angle_offset);
+  lbu.write(90+angle_offset);
+  lbl.write(angle_offset);  
 }
 void writeAdjusted(Servo servo, int angle) {
   // kludge wrapper to restrict pulse limits and write the angle in real bounds :(
@@ -75,12 +74,11 @@ void setHindLegs(int angle_upper, int angle_lower){
 void loop() {
 //  setHindLegs(60,30);
 //  delay(300);
-//  setHindLegs(0,90);
-//  delay(200);
-//  setHindLegs(0,0);
-//  delay(200);
-//  setHindLegs(110,0);
-//  delay(400);
-
+  setHindLegs(0,90);
+  delay(200);
+  setHindLegs(0,0);
+  delay(200);
+  setHindLegs(110,0);
+  delay(400);
 //setHindLegs(0,0);
 }
