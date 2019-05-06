@@ -61,13 +61,13 @@ void loop() {
     // first portion
     if (i <= 7) { // change top from 60->100
       hl1 += (150-60)/7;
-      hl2 += 60;
+      hl2 = 60;
       Serial.print("1st third");
     }
     // middle portion
     else if (i <= 8) { // bring leg up
       hl1 = 40; // bring to 40 degrees
-      hl2 = 150; // bring to 140 degrees
+      hl2 = 130; // bring to 140 degrees
     }
     else if (i <= 9) {
       hl1 = 20; // bring to 40 degrees
@@ -81,14 +81,13 @@ void loop() {
     }
     setHindLegs(hl1,hl2);
     setFrontLegs(f);
-    delay(200);
+    delay(150);
   }
   
   // 2nd half of motion
   setHindLegs(60,90);
-  delay(200);
+  delay(150);
   setFrontLegs(45);
-  
-    delay(200);
+  delay(150);
 
 }
