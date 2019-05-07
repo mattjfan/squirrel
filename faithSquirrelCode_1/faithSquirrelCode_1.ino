@@ -18,7 +18,12 @@ void setAngle(int motor, int angle){
   // angle = 0 corresponds to furthest angular extent to the FRONT
   // angle = 180 corresponds to furthest angular extent to the BACK
   if (motor % 2 == LEFT){ // Left side motors are even
-    servos[motor].write(angle + MIN_ANGLE);
+    if (motor == 2) {
+      servos[motor].write(angle + MIN_ANGLE + 2);
+    }
+    else {
+      servos[motor].write(angle + MIN_ANGLE);
+    }
   } else if (motor % 2 == RIGHT){ // Right side motors are odd
     servos[motor].write(MAX_ANGLE - angle);
   }
@@ -57,7 +62,7 @@ void loop() {
   int f = 45; 
   // 1st half of motion
   for (int i = 1; i <= 10; i++) {
-    f = 45 + i*(152.0-45.0)/10.0; // changes from 45->145
+    f = 45 + i*(120.0-45.0)/10.0; // changes from 45->145
     // first portion
     if (i <= 7) { // change top from 60->100
       hl1 += (150-60)/7;
@@ -81,13 +86,18 @@ void loop() {
     }
     setHindLegs(hl1,hl2);
     setFrontLegs(f);
-    delay(150);
+    if (i < 10) {
+      delay(125);
+    }
+    else {
+      delay(250);
+    }
   }
   
   // 2nd half of motion
   setHindLegs(60,90);
-  delay(150);
+  delay(125);
   setFrontLegs(45);
-  delay(150);
+  delay(125);
 
 }
